@@ -15,7 +15,8 @@ class MarkdownActivity {
       rightParenthesis: ')',
       grave: '`',
       tilde: '~',
-      underscore: '_'
+      underscore: '_',
+      dollarSign: '$'
     }
     this.ignoreTags = ['PRE', ...(options.ignoreTags || [])]
     this.tags = new TagsOperators(this.quillJS, options)
@@ -87,6 +88,7 @@ class MarkdownActivity {
         case this.actionCharacters.newLine:
         case this.actionCharacters.tilde:
         case this.actionCharacters.underscore:
+        case this.actionCharacters.dollarSign:
           this.onInlineExecute.bind(this)()
           break
       }
