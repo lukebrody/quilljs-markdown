@@ -2,7 +2,7 @@ import AbstractTag from '../AbstractTag'
 import meta from './meta'
 
 class formula extends AbstractTag {
-  constructor(quillJS, options = {}) {
+  constructor (quillJS, options = {}) {
     super()
     this.quillJS = quillJS
     this.name = 'formula'
@@ -12,7 +12,7 @@ class formula extends AbstractTag {
     this.activeTags = this._getActiveTagsWithoutIgnore(this._meta.applyHtmlTags, options.ignoreTags)
   }
 
-  getAction() {
+  getAction () {
     return {
       name: this.name,
       pattern: this.pattern,
@@ -29,8 +29,9 @@ class formula extends AbstractTag {
           this.quillJS.deleteText(startIndex, annotatedText.length)
           setTimeout(() => {
             const message = annotatedText.replace(/\$/g, '')
-            this.quillJS.insertText(startIndex, message, 'formula')
-            this.quillJS.insertText(startIndex + message.length, ' ', 'formula')
+            this.quillJS.insertEmbed(startIndex, 'formula', message)
+            this.quillJS.insertText(startIndex + 1, ' ')
+            this.quillJS.setSelection(startIndex + 2)
             resolve(true)
           }, 0)
         }, 0)

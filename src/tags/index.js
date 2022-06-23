@@ -13,7 +13,7 @@ import ListOfBulletFulltext from './listb/fulltext'
 import Codeblock from './codeblock'
 import CodeblockFullText from './codeblock/fulltext'
 import Strikethrough from './strikethrough'
-import Formula from "./formula"
+import Formula from './formula'
 
 class TagsOperators {
   constructor (quillJS, options = { tags: {} }) {
