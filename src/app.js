@@ -111,7 +111,6 @@ class MarkdownActivity {
         text += child.textContent
       }
     })
-    console.log(text)
     const lineStart = selection.index - offset
     const format = this.quillJS.getFormat(lineStart)
     if (format['code-block'] || format['code']) {
