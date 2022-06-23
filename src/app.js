@@ -103,7 +103,15 @@ class MarkdownActivity {
     const selection = this.quillJS.getSelection()
     if (!selection) return
     const [line, offset] = this.quillJS.getLine(selection.index)
-    const text = line.domNode.textContent
+    let text = ''
+    line.domNode.childNodes.forEach(child => {
+      if (child.classList && child.classList.contains('ql-formula')) {
+        text += '\uFEFF'
+      } else {
+        text += child.textContent
+      }
+    })
+    console.log(text)
     const lineStart = selection.index - offset
     const format = this.quillJS.getFormat(lineStart)
     if (format['code-block'] || format['code']) {
