@@ -1,31 +1,31 @@
 
 .ql-container .ql-editor {
   ul[data-checked] {
-    padding-left: 0.4rem;
+    padding-left: 0.4em;
     li {
       &:before {
-        margin-right: 0.6rem;
+        margin-right: 0.6em;
       }
       @for $index from 1 through 100 {
         &.ql-indent-#{$index} {
-          padding-left: #{ 1.2 + $index }rem;
+          padding-left: #{ 1.2 + $index }em;
         }
       }
     }
   }
   ul:not([data-checked]) {
-    padding-left: 1rem;
+    padding-left: 1em;
     li:not(.ql-direction-rtl) {
       position: relative;
       margin: 0;
-      padding-left: 0.8rem;
+      padding-left: 0.8em;
       &:before {
         display: list-item;
         position: absolute;
         list-style: disc;
         width: 0;
         top: -0.25em;
-        left: 1rem;
+        left: 1em;
         content: '';
         margin-left: 0;
         font-size: 1.5em;
@@ -33,9 +33,9 @@
 
       @for $index from 1 through 100 {
         &.ql-indent-#{$index} {
-          padding-left: #{ 1 + $index }rem;
+          padding-left: #{ 1 + $index }em;
           &:before {
-            left: #{($index * 1.05) + 1}rem;
+            left: #{($index * 1.05) + 1}em;
             list-style: square;
           }
         }
@@ -49,11 +49,11 @@
   }
 
   ol {
-    padding-left: 1rem;
+    padding-left: 1em;
     li:not(.ql-direction-rtl) {
       position: relative;
       margin: 0;
-      padding-left: 0.8rem;
+      padding-left: 0.8em;
       &:before {
         width: 0;
         top: -0.25em;
@@ -61,7 +61,7 @@
       }
       @for $index from 1 through 100 {
         &.ql-indent-#{$index} {
-          padding-left: #{ 1 + $index }rem;
+          padding-left: #{ 1 + $index }em;
           &:before {
             margin-right: 1.1em;
           }
